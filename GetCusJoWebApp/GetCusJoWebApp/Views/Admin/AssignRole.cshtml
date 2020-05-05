@@ -1,0 +1,70 @@
+﻿@model GetCusJoWebApp.ViewModels.AssignRoles
+@{
+    ViewData["Title"] = "AssignRole";
+}
+
+
+<h1>Admin: List Users/ Roles</h1>
+<div>
+    <table>
+        <tr>
+            <td width="45%"><b>Users</b></td>
+            <td width="10%">&nbsp;</td>
+            <td width="45%"><b>Roles</b></td>
+        </tr>
+        <tr>
+            <td width="45%">
+                <table>
+                    @foreach (var item in Model.UsersRoles.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+            <td width="10%">&nbsp;</td>
+            <td width="45%">
+                <table>
+                    @foreach (var item in Model.UsersRoles.Roles)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<h1>Admin: Assign Roles</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger" />
+            <div class="form-group">
+                <label>User Id (GUID)</label>
+                <input class="form-control" asp-for="@Model.UserRoles.UserId" />
+            </div>
+            <div class="form-group">
+                <label>Role Names (Comma seperated)</label>
+                <input class="form-control" asp-for="@Model.UserRoles.RoleIds" />
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+
+

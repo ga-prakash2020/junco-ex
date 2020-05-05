@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Admin User Page</h1>
+    <h2>This page can be accessed only if the user blongs to 'Admin' role</h2>
+    <span>Logged in user: <b>@ViewBag.User</b></span>
+    <div>
+        @Html.ActionLink("Create Role", "CreateRole", "Admin") | @Html.ActionLink("List Users/ Roles", "ListUsersAndRoles", "Admin")
+    </div>
+</body>
+</html>
